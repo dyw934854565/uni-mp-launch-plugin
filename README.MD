@@ -15,6 +15,10 @@ webConf.plugins.push(new UniMpLaunchPlugin({
 
 # 不想打开devtool
 
+非production模式下默认打开，如不想打开 设置open为false
+
+production模式下默认不打开，如不想打开 设置open为true
+
 ```sh
 cross-env OPEN=false npm run build
 ```
@@ -22,5 +26,5 @@ cross-env OPEN=false npm run build
 # vue-cli
 
 ```sh
-vue add UniMpLaunch
+vue add uni-mp-launch
 ```

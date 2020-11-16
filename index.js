@@ -15,12 +15,15 @@ module.exports = class UniMpLaunchPlugin {
         if (process.env.UNI_PLATFORM !== 'mp-weixin' || process.env.OPEN === 'false') {
           return;
         }
+        if (process.env.NODE_ENV === 'production' && process.env.OPEN !== 'true') {
+          return;
+        }
         compiler.hooks.done.tapPromise("uni-mp-launch-plugin", function () {
           if (self.launch) {
             return Promise.resolve();
           }
           self.launch = true;
-          const projectPath = self.options.projectPath || path.resolve(compiler.context, 'dist', process.env.NODE_ENV === 'production' ? 'build' : 'dev', 'mp-weixin');
+          const projectPath = self.options.projectPath || process.env.UNI_OUTPUT_DIR;
           console.log('uni-mp-launch-plugin: 正在打开微信开发者工具, 路径' + projectPath);
           return automator.launch({
             cliPath: self.options.cliPath || undefined,

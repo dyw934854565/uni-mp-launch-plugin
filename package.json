@@ -1,0 +1,12 @@
+{
+  "name": "uni-mp-launch-plugin",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "miniprogram-automator": "^0.9.1"
+  }
+}
